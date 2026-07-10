@@ -11,3 +11,7 @@ def test_greet_mentions_the_sandbox():
 
 def test_greet_personalizes_with_name():
     assert "Ali" in greet("Ali")
+
+
+def test_greet_shouts_when_loud():
+    assert greet("Ali", loud=True) == greet("Ali").upper()

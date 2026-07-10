@@ -1,4 +1,6 @@
-def greet(name=None):
+def greet(name=None, loud=False):
     if name:
-        return f"Hello {name} from the Fleet Sandbox!"
-    return "Hello from the Fleet Sandbox!"
+        msg = f"Hello {name} from the Fleet Sandbox!"
+    else:
+        msg = "Hello from the Fleet Sandbox!"
+    return msg.upper() if loud else msg
