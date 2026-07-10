@@ -6,7 +6,10 @@
     "test": "python -m pytest",
     "test_file": "python -m pytest {files}"
   },
-  "test_count_pattern": "[0-9]+ passed",
-  "no_test_paths": ["docs/**", "*.md"],
-  "safety_class": "live"
+  "no_test_paths": [
+    "docs/**",
+    "*.md"
+  ],
+  "safety_class": "live",
+  "test_count_pattern": "[0-9]+ passed"
 }
