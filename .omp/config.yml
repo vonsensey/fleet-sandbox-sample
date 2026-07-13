@@ -1,0 +1,25 @@
+# Fleet omp-lane experiment config (blackcube fleet, task #4).
+# Project-scoped: omp loads this ONLY when launched from this repo/worktree
+# root. Reference: blackcube docs/fleet-omp-upgrade.md (distilled omp docs).
+
+providers:
+  openrouterVariant: nitro   # throughput-first provider routing (fewer stalls)
+
+modelRoles:
+  default: openrouter/z-ai/glm-5.2
+  smol: openrouter/z-ai/glm-4.7-flash   # cheap internal calls (titles, fan-out)
+
+retry:
+  enabled: true
+  modelFallback: true
+  maxDelayMs: 60000          # cap backoff at 1 min (default 5 min eats lane time)
+  fallbackChains:
+    # 429 / quota wall / provider outage -> auto-switch for the rest of the
+    # turn, revert on cooldown expiry. Three vendors on purpose.
+    default:
+      - openrouter/z-ai/glm-5.2
+      - openrouter/moonshotai/kimi-k2.7-code
+      - openrouter/deepseek/deepseek-v4-pro
+
+ask:
+  timeout: 30                # unattended lane must never hang on the ask tool
