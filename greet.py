@@ -4,3 +4,7 @@ def greet(name=None, loud=False):
     else:
         msg = "Hello from the Fleet Sandbox!"
     return msg.upper() if loud else msg
+
+
+def greet_many(names, loud=False):
+    return [greet(name, loud=loud) for name in names]
