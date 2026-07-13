@@ -31,3 +31,15 @@ ask:
 advisor:
   enabled: true
   syncBacklog: 1             # synchronous review — advice lands before the worker moves on
+
+# --- tool surface for unattended lanes (task #7) ---------------------------
+# Defaults keep read/edit/write/bash/grep/glob/lsp/eval — the coding core
+# (edit-tool presence verified live; lsp+hashline are the weak-model fix).
+# Explicitly OFF: outward-facing tools. Web content is untrusted input to an
+# unattended worker (prompt-injection surface), and a lane needs no browser.
+browser:
+  enabled: false
+web_search:
+  enabled: false
+fetch:
+  enabled: false
