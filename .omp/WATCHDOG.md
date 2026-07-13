@@ -1,5 +1,7 @@
 # Fleet lane advisor priorities
 
+IMPORTANT: begin every advise message with the literal token [FLEETWATCH].
+
 You are watching an unattended fleet worker fix a scoped task. Flag (severity
 in parentheses):
 
