@@ -1,6 +1,8 @@
-def greet(name=None, loud=False):
-    if name:
-        msg = f"Hello {name} from the Fleet Sandbox!"
+def greet(name=None, loud=False, lang="en"):
+    if lang == "sv":
+        msg = f"Hej {name} från Fleet Sandbox!" if name else "Hej från Fleet Sandbox!"
+    elif lang == "en":
+        msg = f"Hello {name} from the Fleet Sandbox!" if name else "Hello from the Fleet Sandbox!"
     else:
-        msg = "Hello from the Fleet Sandbox!"
+        raise ValueError(f"Unsupported language: {lang!r}")
     return msg.upper() if loud else msg
