@@ -30,4 +30,4 @@ ask:
 # NEVER a subscription-Claude model here (TOS: those run only in Claude Code).
 advisor:
   enabled: true
-  syncBacklog: 3             # bounded catch-up so advice lands before the end
+  syncBacklog: 1             # synchronous review — advice lands before the worker moves on
