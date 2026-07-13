@@ -1,0 +1,15 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "fleet-sandbox-sample"
+version = "0.1.0"
+description = "Fleet Sandbox sample — the AWS U12 non-Rails validation target"
+requires-python = ">=3.8"
+
+[project.scripts]
+sandbox-greet = "greet:main"
+
+[tool.setuptools]
+py-modules = ["greet"]
