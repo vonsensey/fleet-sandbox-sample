@@ -1,3 +1,4 @@
+import pytest
 from greet import greet
 
 
@@ -15,3 +16,13 @@ def test_greet_personalizes_with_name():
 
 def test_greet_shouts_when_loud():
     assert greet("Ali", loud=True) == greet("Ali").upper()
+
+
+def test_greet_raises_typeerror_on_non_string():
+    for bad in [42, 3.14, [], {}]:
+        with pytest.raises(TypeError):
+            greet(bad)
+
+
+def test_greet_empty_string_uses_default():
+    assert greet("") == "Hello from the Fleet Sandbox!"
