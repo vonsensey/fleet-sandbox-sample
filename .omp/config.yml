@@ -8,6 +8,7 @@ providers:
 modelRoles:
   default: openrouter/z-ai/glm-5.2
   smol: openrouter/z-ai/glm-4.7-flash   # cheap internal calls (titles, fan-out)
+  advisor: openrouter/deepseek/deepseek-v4-pro   # watcher, cheap + strong + different vendor
 
 retry:
   enabled: true
@@ -23,3 +24,10 @@ retry:
 
 ask:
   timeout: 30                # unattended lane must never hang on the ask tool
+
+# --- advisor (task #6): a second model watching every worker turn ----------
+# Different vendor than the worker on purpose; interrupts on concern/blocker.
+# NEVER a subscription-Claude model here (TOS: those run only in Claude Code).
+advisor:
+  enabled: true
+  syncBacklog: 3             # bounded catch-up so advice lands before the end
